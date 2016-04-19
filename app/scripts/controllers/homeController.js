@@ -10,19 +10,17 @@ myProjectApp.controller('homeController', ['$scope', 'Profile', function($scope,
     });
 }]);
 
-var circle = new ProgressBar.Circle('.circle', {
-    color: '#FCB03C',
-    strokeWidth: 3,
-    trailWidth: 1,
-    duration: 1500,
-    text: {
-        value: '0'
-    },
-    step: function(state, bar) {
-        bar.setText((bar.value() * 100).toFixed(0));
-    }
+myProjectApp.directive('homeSkill', function(){
+  return{
+       restrict: 'EA',
+       templateUrl : './templates/home-skill.html',
+       link: function(scope, element, attrs){
+         angular.element(document).ready(function (){
+           var domElement = element.children('.circle');
+           element.click(function(){
+             domElement.css('background','red');
+           });
+         });
+       }
+  }
 });
-
-circle.animate(1, function() {
-    circle.animate(0);
-})

@@ -1,7 +1,9 @@
 <div ng-controller="homeController">
     Its my fucking home page {{ greeting }}
     Test de ma page home test
-    <div class="circle" ng-repeat="(key, value) in profile.skills">
-      {{key}} {{value}} <br />
+    <div class="row">
+      <div class="col-md-12">
+        <home-skill home-skill-value="{{value}}" home-skill-key="{{key}}" ng-repeat="(key, value) in profile.skills"></home-skill>
+      </div>
     </div>
 </div>
